@@ -13,7 +13,7 @@ const PokemonDetail = ({ pokemon }) => {
       <div>{`# ${number}`}</div>
       <div>Name: {name}</div>
       <div>Generation: {generation}</div>
-      <div>Types: {types.map(t => <span>{t} </span>)}</div>
+      <div>Types: {types.map((t, i) => <span key={i}>{t} </span>)}</div>
       <div>About: {about}</div>
     </div>
   );

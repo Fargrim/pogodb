@@ -8,8 +8,11 @@ export const PokemonLink = ({
   name,
   color
 }) => {
+
   return (
-      <Link className={`pokemon-link ${color}`} to={`/pokemon/${number}`}>{name}</Link>
+      <Link className={`pokemon-link ${color}`} to={`/pokemon/${number}`}>
+        <img src={require(`./images/${number}.png`)}/>
+      </Link>
   );
 };
 
