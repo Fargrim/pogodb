@@ -1,19 +1,31 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import './PokemonLink.css';
-import { Link } from 'react-router-dom';
+import { selectPokemon } from './actions';
 
 export const PokemonLink = ({
   number,
-  onClick,
+  onPokemonClick,
   name,
   color
 }) => {
 
   return (
-      <Link className={`pokemon-link ${color}`} to={`/pokemon/${number}`}>
+      <div
+        className={`pokemon-link ${color}`}
+        to={`/pokemon/${number}`}
+        onClick={() => onPokemonClick(number)}
+      >
         <img src={require(`./images/${number}.png`)}/>
-      </Link>
+      </div>
   );
 };
 
-export default PokemonLink
+export default connect(
+  state => state,
+  dispatch => ({
+    onPokemonClick: number => {
+      dispatch(selectPokemon(number))
+    }
+  })
+)(PokemonLink)

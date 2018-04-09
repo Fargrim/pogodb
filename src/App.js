@@ -6,13 +6,13 @@ import PokemonSelectionContainer from './PokemonSelectionContainer';
 import PokemonDetailContainer from './PokemonDetailContainer';
 
 class App extends Component {
+
   render() {
     return (
       <div className="App">
-        <Header />
+        <Header selectedPokemon={this.props.store.getState().selectedPokemon}/>
         <div className="App-body">
-          <Route exact path="/" component={PokemonSelectionContainer}/>
-          <Route path="/pokemon/:number" component={PokemonDetailContainer}/>
+          <PokemonSelectionContainer/>
         </div>
       </div>
     );
