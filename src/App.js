@@ -8,11 +8,15 @@ import PokemonDetailContainer from './PokemonDetailContainer';
 class App extends Component {
 
   render() {
+    const {
+      pokemon,
+      selectedPokemon
+    } = this.props.store.getState();
     return (
       <div className="App">
-        <Header selectedPokemon={this.props.store.getState().selectedPokemon}/>
+        <Header selectedPokemon={selectedPokemon}/>
         <div className="App-body">
-          <PokemonSelectionContainer/>
+          <PokemonSelectionContainer pokemon={pokemon}/>
         </div>
       </div>
     );

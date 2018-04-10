@@ -9,7 +9,7 @@ const Header = ({
   <header className="App-header">
     <h1 className="App-title">Pokemon Go DB</h1>
     {
-      selectedPokemon.map(p => <div> {p.name}</div>)
+      selectedPokemon.map(p => <div key={p.number}>{p.name}</div>)
     }
   </header>
 );

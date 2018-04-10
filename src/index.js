@@ -7,8 +7,12 @@ import registerServiceWorker from './registerServiceWorker';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import { pogoApp } from './reducers';
+import pokemon from './pokemon.js';
 
-const store = createStore(pogoApp);
+const store = createStore(pogoApp, {
+  pokemon,
+  selectedPokemon: []
+});
 
 const render = () => ReactDOM.render(
   <Provider store={store}>
@@ -16,6 +20,6 @@ const render = () => ReactDOM.render(
   </Provider>,
   document.getElementById('root')
 );
+store.subscribe(render);
 render();
-store.subscribe(render)
 registerServiceWorker();

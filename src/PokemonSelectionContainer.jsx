@@ -2,7 +2,7 @@ import React from 'react';
 import pokemon from './pokemon.js';
 import PokemonLink from './PokemonLink';
 
-const PokemonSelectionContainer = () => (
+const PokemonSelectionContainer = ({pokemon}) => (
   <div className="pokemon-selection">
     {pokemon.map(
       (p, i) => (
